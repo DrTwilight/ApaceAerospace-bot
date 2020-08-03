@@ -1,0 +1,8 @@
+{
+  "name": "ApaceAerospace-bot",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "repository": "git@github.com:DrTwilight/ApaceAerospace-bot.git",
+  "author": "grey <greysilly7@gmail.com>",
+  "license": "MIT"
+}
