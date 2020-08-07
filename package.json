@@ -1,8 +1,17 @@
 {
   "name": "apaceaerospace-bot",
   "version": "0.0.1",
-  "main": "src/index.js",
+  "main": "src/Index.js",
   "repository": "git@github.com:DrTwilight/ApaceAerospace-bot.git",
   "author": "grey <greysilly7@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.2.0",
+    "discord.js-commando": "discordjs/Commando",
+    "querystring": "^0.2.0",
+    "r2": "^2.0.1",
+    "simple-youtube-api": "^5.2.1"
+  },
+  "devDependencies": {}
 }
