@@ -6,13 +6,13 @@ module.exports = class LeaveCommand extends Command {
 			name: 'leave',
 			group: 'music',
 			memberName: 'leave',
-			description: 'Replies with a meow, kitty cat.',
+			description: 'leaves Voice channel.',
 		});
     }
     async run(message) {
         if (message.member.voice.channel) {
             const leave = await message.member.voice.channel.leave();
-            message.reply("Left.")
+            return message.reply("Left.")
 		}
     }
 };

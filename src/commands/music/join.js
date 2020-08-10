@@ -13,7 +13,6 @@ module.exports = class JoinCommand extends Command {
         if (message.member.voice.channel) {
 			const connection = await message.member.voice.channel.join();
 			message.reply("Joined.")
-			const dispatcher = connection.play("https://www.marxists.org/history/ussr/sounds/mp3/anthems/Byelorussia.mp3")
 		}
     }
 };

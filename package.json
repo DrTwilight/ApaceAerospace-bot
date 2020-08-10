@@ -1,7 +1,7 @@
 {
   "name": "apaceaerospace-bot",
-  "version": "0.0.1",
-  "main": "src/Index.js",
+  "version": "0.1.0",
+  "main": "src/Bot.js",
   "repository": "git@github.com:DrTwilight/ApaceAerospace-bot.git",
   "author": "grey <greysilly7@gmail.com>",
   "license": "MIT",
@@ -10,7 +10,10 @@
     "discord.js": "^12.2.0",
     "discord.js-commando": "discordjs/Commando",
     "querystring": "^0.2.0",
-    "r2": "^2.0.1"
+    "r2": "^2.0.1",
+    "simple-youtube-api": "^5.2.1",
+    "ytdl-core": "^3.2.0",
+    "ytdl-core-discord": "https://github.com/amishshah/ytdl-core-discord"
   },
   "devDependencies": {}
 }
