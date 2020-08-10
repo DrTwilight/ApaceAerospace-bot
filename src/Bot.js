@@ -15,17 +15,12 @@ client.registry
 	.registerDefaultTypes()
 	.registerGroups([
 //		['public', 'Commands everyone can use'],
-        ['mods', 'Commands for moderation'],
+        	['mods', 'Commands for moderation'],
 		['fun', 'Commands that are here for only fun'],
 		['music', 'Commands related to music'],
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands()
 	.registerCommandsIn(path.join(__dirname, 'commands'));
-
-client.on("guildMemberAdd", (member, message) => {
-	const role = message.guild.roles.find(r => r.name === "member");
-	member.roles.add(role)
-});
 
 client.login(token)
