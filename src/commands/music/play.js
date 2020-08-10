@@ -1,11 +1,11 @@
 const { Command } = require('discord.js-commando');
 const ytdl = require('ytdl-core');
-const YOUTUBE_API_KEY = "AIzaSyD0a91VNH-RIhphJ1kofmPod-hBD2aPMa8"
+const { YOUTUBE_API_KEY } = require("../../Config.json");
 const QUEUE_LIMIT = "5"
-const { Util, MessageEmbed } = require("discord.js")
-const YoutubeAPI = require("simple-youtube-api")
-const youtube = new YoutubeAPI(YOUTUBE_API_KEY)
-const { play } = require("../../system/music.js")
+const { Util, MessageEmbed } = require("discord.js");
+const YoutubeAPI = require("simple-youtube-api");
+const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
+const { play } = require("../../system/music.js");
 
 module.exports = class PlayCommand extends Command {
 	constructor(client) {
@@ -82,7 +82,7 @@ module.exports = class PlayCommand extends Command {
               songData = await ytdl.getInfo(targetsong);
             
               song = {
-                   title: songData.videoDetails.title,
+                title: songData.videoDetails.title,
                 url: songData.videoDetails.video_url,
                 duration: songData.videoDetails.lengthSeconds,
                 thumbnail: songData.videoDetails.thumbnail.thumbnails[3].url
