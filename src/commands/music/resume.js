@@ -26,7 +26,7 @@ module.exports = class ResumeCommand extends Command {
               serverQueue.playing = true;
               serverQueue.connection.dispatcher.resume()
           embed.setAuthor("✅ | Resumed the Paused Song")
-           embed.setThumbnail(client.user.displayAvatarURL())
+           embed.setThumbnail(this.client.user.displayAvatarURL())
           return message.channel.send(embed)
          }
             embed.setDescription("There is nothing paused that i can resume")

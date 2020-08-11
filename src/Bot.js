@@ -15,7 +15,7 @@ client.registry
 	.registerDefaultTypes()
 	.registerGroups([
 //		['public', 'Commands everyone can use'],
-        	['mods', 'Commands for moderation'],
+        ['mods', 'Commands for moderation'],
 		['fun', 'Commands that are here for only fun'],
 		['music', 'Commands related to music'],
 	])
