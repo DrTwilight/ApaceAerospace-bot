@@ -1,7 +1,7 @@
+
 const { Command } = require('discord.js-commando');
 const ytdl = require('ytdl-core');
-const { YOUTUBE_API_KEY } = require("../../Config.json");
-const QUEUE_LIMIT = "5"
+const { YOUTUBE_API_KEY, QUEUE_LIMIT } = require("../../Config.json");
 const { Util, MessageEmbed } = require("discord.js");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
