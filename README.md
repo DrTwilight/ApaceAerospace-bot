@@ -10,10 +10,14 @@ to get started run
     "owners": ["ur user id"],
     "prefix": ">",
     "token": "Your bots token",
-    "YOUTUBE_API_KEY": "Your Youtube data api token"
+    "YOUTUBE_API_KEY": "Your Youtube data api token",
+    "QUEUE_LIMIT": 5,
 }
 ```
 * `npm i`
 * `node .`
 
 it is recremended that you use [pm2](https://www.npmjs.com/package/pm2)
+
+Notes:
+    * Your limited to 1000 requests a day due to a api limit put in place by google
