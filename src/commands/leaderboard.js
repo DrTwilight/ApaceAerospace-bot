@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js")
+const {MessageEmbed} = require("discord.js")
 exports.run = async (client, message, args, level) => {
     const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
 
@@ -9,13 +9,13 @@ exports.run = async (client, message, args, level) => {
   const top10 = sorted.splice(0, 10);
 
   // Now shake it and show it! (as a nice embed, too!)
-  const embed = new RichEmbed()
-    .setTitle("Leaderboard")
-    .setAuthor(client.user.username, client.user.avatarURL)
-    .setDescription("Our top 10 points leaders!")
-    .setColor(0x00AE86);
+  const embed = new MessageEmbed();
+    embed.setTitle("Leaderboard")
+    embed.setAuthor(client.user.username, client.user.avatarURL)
+    embed.setDescription("Our top 10 points leaders!")
+    embed.setColor(0x00AE86);
   for(const data of top10) {
-    embed.addField(client.users.get(data.user).tag, `${data.points} points (level ${data.level})`);
+    embed.addField(client.users.cache.get(data.user).tag, `${data.points} points (level ${data.level})`);
   }
   return message.channel.send({embed});
   };
