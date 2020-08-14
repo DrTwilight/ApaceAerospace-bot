@@ -13,7 +13,7 @@ module.exports = async (client, message) => {
         points: 0,
         level: 1
       });
-      client.points.math(key, "+", 15, "points")
+      client.points.math(key, "+", 25, "points")
       const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
     
       // Act upon level up by sending a message and updating the user's level in enmap.
