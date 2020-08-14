@@ -4,6 +4,26 @@ module.exports = async (client, message) => {
 
     const settings = message.settings = client.getSettings(message.guild);
 
+    if (message.guild) {
+      // This is where we'll put our code.
+      const key = `${message.guild.id}-${message.author.id}`;
+      client.points.ensure(key, {
+        user: message.author.id,
+        guild: message.guild.id,
+        points: 0,
+        level: 1
+      });
+      client.points.inc(key, "points");
+      const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
+    
+      // Act upon level up by sending a message and updating the user's level in enmap.
+      if (client.points.get(key, "level") < curLevel) {
+        message.reply(`You've leveled up to level **${curLevel}**! Ain't that dandy?`);
+        client.points.set(key, curLevel, "level");
+      }
+    }
+
+
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(settings.prefix) !== 0) return;      
     // Our standard argument/command name definition.
