@@ -1,3 +1,4 @@
+const { RichEmbed } = require("discord.js")
 exports.run = async (client, message, args, level) => {
     const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
 
@@ -8,7 +9,7 @@ exports.run = async (client, message, args, level) => {
   const top10 = sorted.splice(0, 10);
 
   // Now shake it and show it! (as a nice embed, too!)
-  const embed = new Discord.RichEmbed()
+  const embed = new RichEmbed()
     .setTitle("Leaderboard")
     .setAuthor(client.user.username, client.user.avatarURL)
     .setDescription("Our top 10 points leaders!")
