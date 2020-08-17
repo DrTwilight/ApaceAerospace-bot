@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => {
     const num = Math.floor(Math.random() * 100000);
-    return message.send(`Fursona #${num}`, {
+    return message.reply(`Fursona #${num}`, {
         files: [`https://thisfursonadoesnotexist.com/v2/jpgs/seed${num.toString().padStart(5, '0')}.jpg`]
     });
   };
