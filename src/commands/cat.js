@@ -1,19 +1,17 @@
 const randomPuppy = require('random-puppy');
 exports.run = async (client, message, args) => {
     let reddit = [
-      "dogpictures",
-      "dogs",
-      "rarepuppers",
-      "dogswithjobs",
-      "WhatsWrongWithYourDog"
+      "catpictures",
+      "cats",
+      "CatGhost"
     ]
 
     let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
-    const dog = await randomPuppy(subreddit)
+    const cat = await randomPuppy(subreddit)
     message.channel.send({
         files: [{
-            attachment: dog,
-            name: 'dog.png'
+            attachment: cat,
+            name: 'cat.png'
         }]
     })
 };
@@ -26,8 +24,8 @@ exports.run = async (client, message, args) => {
   };
   
   exports.help = {
-    name: "dog",
+    name: "cat",
     category: "Fun",
-    description: "It returns a dog.",
-    usage: "dog"
+    description: "It returns a cat.",
+    usage: "cat"
   };
