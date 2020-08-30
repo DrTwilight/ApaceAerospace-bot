@@ -29,7 +29,7 @@ exports.run = async (client, message) => {
   
   exports.help = {
     name: "userinfo",
-    category: "Miscelaneous",
+    category: "Miscellaneous",
     description: "Shows you stuff about a person.",
     usage: "userinfo <mention user>"
   };
