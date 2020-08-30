@@ -1,22 +1,22 @@
 const { MessageEmbed } = require("discord.js");
 
 exports.run = async (client, message) => {
-  let ment
+  let mention
   if(message.mentions.users.first()) {
-    ment = message.mentions.users.first()
+    mention = message.mentions.users.first()
   } else {
-    ment = message.author
+    mention = message.author
   }
-		if(!ment) {
+		if(!mention) {
 			message.channel.send('Please mention a user!')
 		}
-	// Creats an embed with information about the mentioned user
+	// Creates an embed with information about the mentioned user
 		let embed = new MessageEmbed()
-		.addField("Username", ment.tag)
-		.addField("ID", ment.id)
-		.addField("Status", ment.presence.status)
-		.addField("Created", ment.createdAt)
-		.setThumbnail(ment.avatarURL)
+		.addField("Username", mention.tag)
+		.addField("ID", mention.id)
+		.addField("Status", mention.presence.status)
+		.addField("Created", mention.createdAt)
+		.setThumbnail(mention.avatarURL)
 		message.channel.send(embed)
   };
   

@@ -36,7 +36,7 @@ exports.run = async (client, message, args, level) => {
   
   exports.help = {
     name: "queue",
-    category: "Miscelaneous",
+    category: "Music",
     description: "It shows u every song in the queue of songs to be played.",
     usage: "queue"
   };
