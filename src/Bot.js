@@ -1,23 +1,25 @@
-const Discord = require("discord.js");
+const {Client,Collection} = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 
-const client = new Discord.Client();
+const client = new Client();
 
 client.config = require("./config.js");
 
 require("./functions.js")(client);
 
 
-client.commands = new Enmap();
-client.aliases = new Enmap();
+
 client.points = new Enmap({name: "points"});
-client.queue = new Map();
-client.vote = new Map();
-
-
+client.warns = new Enmap({name: "warns"})
 client.settings = new Enmap({name: "settings"});
+client.queue = new Collection();
+client.vote = new Collection();
+client.commands = new Collection();
+client.aliases = new Collection();
+
+
 
 
 const init = async () => {

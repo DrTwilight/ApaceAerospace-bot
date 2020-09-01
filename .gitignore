@@ -102,7 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+#Custom
 data/enmap.sqlite
 data/enmap.sqlite-shm
 data/enmap.sqlite-wal
 src/config.js
+pnpm-lock.yaml
+.nvmrc
