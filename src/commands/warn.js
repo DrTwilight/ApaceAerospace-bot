@@ -12,15 +12,15 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     console.log(totalWarns);
     let embed = new MessageEmbed()
     .setColor("RANDOM")
-    .setTitle(`Warned ${user.tag}`)
+    .setTitle(`Warned ${user}`)
     .setImage(user.iconURL)
-    .setDescription(`${user.tag} has been warned by ${mod} `)
+    .setDescription(`${user} has been warned by ${mod} `)
     .addField("Reason", `${reason}`)
     message.channel.send(`${user} has been warned`)
     switch (totalWarns) {
         case 1: user.send(`You have been warned for \`\`\`${reason}\`\`\``); mod_log.send(embed); break;
         case 2: user.send(`You have been warned for \`\`\`${reason}\`\`\` next time you are getting banned!`); mod_log.send(embed); break;
-        case 3: user.send(`You have been warned for \`\`\`${reason}\`\`\` and are now getting banned!`); user.ban({reason: reason}); mod_log.send(`${user.tag} has been banned by ${mod.tag} because: ${reason}`); client.warns.delete(key); break;
+        case 3: user.send(`You have been warned for \`\`\`${reason}\`\`\` and are now getting banned!`); user.ban({reason: reason}); mod_log.send(`${user} has been banned by ${mod.tag} because: ${reason}`); client.warns.delete(key); break;
         case 4: client.warns.delete(key);
     }
 }
