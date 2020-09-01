@@ -25,7 +25,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
        const image = `http://media.obutts.ru/${preview}`;
 
        const embed = new Discord.MessageEmbed()
-           .setFooter('http://obutts.ru/')
+           .setFooter(`Requested by; ${message.author.tag}`)
            .setImage(image)
            .setColor('#CEA0A6');
        return message.channel.send({ embed });
