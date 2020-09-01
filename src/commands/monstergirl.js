@@ -4,9 +4,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     if (!message.channel.nsfw) return message.channel.send("This command can not be used here, go to a NSFW channel instead.");
     let reddit = [
-        "hentai",
-        "rule34",
-        "HQHentai"
+        "MonsterGirl"
    ]
 
    let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
@@ -33,13 +31,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 exports.conf = {
  enabled: true,
  guildOnly: false,
- aliases: ["irl","hirl"],
+ aliases: ["mg","monstergirl"],
  permLevel: "User"
 };
 
 exports.help = {
- name: "hentaiirl",
+ name: "monstergirl",
  category: "NSFW",
- description: "Hentai! But depicts of real situations!",
- usage: "hentaiirl"
+ description: "Finds monstergirls for you!",
+ usage: "monstergirl"
 };
