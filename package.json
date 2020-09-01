@@ -20,12 +20,12 @@
     "url": "https://github.com/DrTwilight/ApaceAerospace-bot/issues"
   },
   "homepage": "https://github.com/DrTwilight/ApaceAerospace-bot#readme",
-  "devDependencies": {},
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "better-sqlite3": "^7.1.0",
     "discord.js": "^12.2.0",
     "enmap": "^5.6.1",
+    "ms": "^2.1.2",
     "r2": "^2.0.1",
     "random-puppy": "^1.1.0",
     "simple-youtube-api": "^5.2.1",

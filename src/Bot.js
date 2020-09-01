@@ -53,3 +53,16 @@ const init = async () => {
 };
 
 init();
+const safeExit = async () => {
+  client.points.close();
+  client.warns.close();
+  client.settings.close();
+  client.aliases
+  client.destroy();
+}
+
+process.on('SIGINT', async function() {
+  console.log("aught interrupt signal");
+  await safeExit
+  process.exit(0);
+});

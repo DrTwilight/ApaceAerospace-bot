@@ -14,8 +14,7 @@ exports.run = async (client, message, args) => {
         "meirl",
         "me_irl",
         "2meirl4meirl",
-        "AdviceAnimals",
-        "furry_irl"
+        "AdviceAnimals"
     ]
 
     let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
