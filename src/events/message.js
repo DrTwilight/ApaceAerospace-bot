@@ -1,8 +1,10 @@
 module.exports = async (client, message) => {
+
     // Ignore all bots
     if (message.author.bot) return;
 
     const settings = message.settings = client.getSettings(message.guild);
+
 
     if (message.guild) {
       // This is where we'll put our code.

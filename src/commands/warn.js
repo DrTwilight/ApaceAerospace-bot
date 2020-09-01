@@ -13,7 +13,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     let embed = new MessageEmbed()
     .setColor("RANDOM")
     .setTitle(`Warned ${user.id}`)
-    .setImage(user.iconURL)
     .setDescription(`<@${user.id}> has been warned by ${mod} `)
     .addField("Reason", `${reason}`)
     message.channel.send(`<@${user.id}> has been warned`)
