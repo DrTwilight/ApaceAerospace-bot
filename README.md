@@ -19,7 +19,7 @@ to get started run
 * `npm i`
 * `node setup.js`
 * `node .`
-To get the bot in your server go to [Discord Permission Calculator](https://discordapi.com/permissions.html#8) and put your bots client ID at het bottom where it asks for it
+To get the bot in your server go to [Discord Permission Calculator](https://discordapi.com/permissions.html#8) and put your bots client ID at the bottom where it asks for it
 
 Notes:
     * Your limited to 1000 requests a day due to a api limit put in place by google
