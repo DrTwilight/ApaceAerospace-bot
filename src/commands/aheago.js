@@ -1,18 +1,4 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-    /*
-    const Discord = require("discord.js");
-
-    if (!message.channel.nsfw) return message.channel.send("This command can not be used here, go to a NSFW channel instead.");
-
-    const ahegao = all('ahegao')
-        console.log(ahegao)
-        const kEmbed = new Discord.MessageEmbed()
-        .setImage(ahegao)
-        .setColor("RANDOM")
-        .setFooter(`Requested by: ${message.author.tag}`);
-
-        message.channel.send(kEmbed);
-        */
        const snekfetch = require("snekfetch")
        const Discord = require("discord.js");
    
