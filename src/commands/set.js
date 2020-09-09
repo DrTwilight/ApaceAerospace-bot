@@ -5,7 +5,6 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
   const defaults = client.settings.get('default');
   const overrides = client.settings.get(message.guild.id);
   if (!client.settings.has(message.guild.id)) client.settings.set(message.guild.id, {});
-  cosnt array = []
   // Edit an existing key value
 
 
@@ -46,14 +45,13 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
       message.reply(`The value of ${key} is currently ${settings[key]}${isDefault}`);
       break;
     case undefined:
-      let array = [];
+      const array = [];
       Object.entries(settings).forEach(([key, value]) => {
         array.push(`${key}${' '.repeat(20 - key.length)}::  ${value}`);
       });
       await message.channel.send(`= Current Guild Settings =\n${array.join('\n')}`, {code: 'asciidoc'});
       break;
     case 'view':
-      let array = [];
       Object.entries(settings).forEach(([key, value]) => {
         array.push(`${key}${' '.repeat(20 - key.length)}::  ${value}`);
       });

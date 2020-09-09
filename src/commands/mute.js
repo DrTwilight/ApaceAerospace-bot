@@ -1,10 +1,18 @@
 /* eslint-disable max-len */
 const ms = require('ms');
+const {MessageEmbed} = require('discord.js');
 exports.run = async (client, message, args, level) => {
   const tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
   if (!tomute) return message.reply('Couldn\'t find user.');
   if (tomute.hasPermission('MANAGE_MESSAGES')) return message.reply('Can\'t mute them!');
   let muterole = message.guild.roles.cache.find((role) => role.name === 'muted');
+  const settings = message.settings;
+  const modlog = message.guild.channels.cache.find((ch) => ch.name === settings['modLogChannel']);
+  const embed = new MessageEmbed()
+      .setColor('RANDOM')
+      .setTitle(`Muted ${tomute.id}`)
+      .setDescription(`<@${tomute.id}> has been warned by ${message.author.tag} `)
+      .addField('Reason', `${reason}`);
   // start of create role
   if (!muterole) {
     try {
@@ -24,6 +32,8 @@ exports.run = async (client, message, args, level) => {
     } catch (e) {
       console.log(e.stack);
     }
+  } else {
+    return;
   }
   // end of create role
   const mutetime = args[1];
@@ -31,6 +41,7 @@ exports.run = async (client, message, args, level) => {
 
   await(tomute.roles.add(muterole.id));
   message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+  modlog.send(embed);
 
   setTimeout(function() {
     tomute.roles.remove(muterole.id);
