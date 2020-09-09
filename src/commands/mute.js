@@ -11,8 +11,8 @@ exports.run = async (client, message, args, level) => {
   const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setTitle(`Muted ${tomute.id}`)
-      .setDescription(`<@${tomute.id}> has been warned by ${message.author.tag} `)
-      .addField('Reason', `${reason}`);
+      .setDescription(`<@${tomute.id}> has been warned by ${message.author.tag} `);
+  // .addField('Reason', `${reason}`);
   // start of create role
   if (!muterole) {
     try {
@@ -32,8 +32,6 @@ exports.run = async (client, message, args, level) => {
     } catch (e) {
       console.log(e.stack);
     }
-  } else {
-    return;
   }
   // end of create role
   const mutetime = args[1];
