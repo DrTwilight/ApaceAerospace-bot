@@ -20,6 +20,8 @@ client.aliases = new Collection();
 
 
 const init = async () => {
+  try {
+  }
   const cmdFiles = await readdir('./src/commands');
   console.log(`Loading a total of ${cmdFiles.length} commands.`);
   cmdFiles.forEach((f) => {
@@ -45,6 +47,10 @@ const init = async () => {
   }
 
   client.login(client.config.token);
+  } catch (error) {
+    console.log(error)
+  }
+  
 };
 
 init();

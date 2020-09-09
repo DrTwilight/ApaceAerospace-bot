@@ -4,8 +4,10 @@ module.exports = {
     'es2021': true,
     'node': true,
   },
+  'plugins': ['promise'],
   'extends': [
     'google',
+    'plugin:promise/recommended',
   ],
   'parserOptions': {
     'ecmaVersion': 12,
