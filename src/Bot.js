@@ -7,7 +7,7 @@ const client = new Client();
 
 client.config = require('./config.js');
 
-require('./functions.js')(client);
+require('./libs/functions.js')(client);
 
 
 client.points = new Enmap({name: 'points'});
