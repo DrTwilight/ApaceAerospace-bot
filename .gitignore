@@ -107,7 +107,8 @@ dist
 data/enmap.sqlite
 data/enmap.sqlite-shm
 data/enmap.sqlite-wal
-src/config.js
+src/config.ts
 pnpm-lock.yaml
 .nvmrc
 out/
+build/
