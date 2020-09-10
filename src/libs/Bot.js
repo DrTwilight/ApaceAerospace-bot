@@ -30,6 +30,7 @@ module.exports = class ApaceClient extends Client {
 	 * NEVER GIVE ANYONE BUT OWNER THE LEVEL 10! By default this can run any
 	 * command including the VERY DANGEROUS `eval` and `exec` commands!
 	 * @param {Message} message Write a dsec here
+   * @returns {string} returns the permlvl
 	 */
 	permlevel = message => {
 		let permlvl = 0;

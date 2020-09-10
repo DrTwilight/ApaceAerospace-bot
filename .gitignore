@@ -110,3 +110,4 @@ data/enmap.sqlite-wal
 src/config.js
 pnpm-lock.yaml
 .nvmrc
+out/
