@@ -2,7 +2,7 @@
   "name": "apaceaerospace-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "src/Bot.js",
+  "main": "src/index.js",
   "engineStrict": true,
   "engines": {
     "node": ">=12.18.3"
