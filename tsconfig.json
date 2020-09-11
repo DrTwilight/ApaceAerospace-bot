@@ -1,24 +1,22 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es5",
+    "target": "esnext",
     "module": "commonjs",
     "sourceMap": false,
     "removeComments": true,
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "build"
+    "outDir": "build",
+    "allowJs": true,
   },
-  "include": [
-    "src/**/*",
-    "src/*"
-  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "data",
   ]
 }

@@ -1,13 +1,11 @@
-const {promisify} = require('util');
+import {promisify} from 'util';
 const readdir = promisify(require('fs').readdir);
-const ApaceClient = require('./libs/Bot.js');
+const ApaceClient = require('./utils/Bot.js');
 
 const client = new ApaceClient();
 
-client.config = require('./config.js');
-
 ;(async () => {
-  const cmdFiles = await readdir('./src/commands');
+  const cmdFiles = await readdir('./build/commands');
   console.log(`Loading a total of ${cmdFiles.length} commands.`);
   for (const f of cmdFiles) {
     if (!f.endsWith('.js')) continue;
@@ -15,7 +13,7 @@ client.config = require('./config.js');
     if (response !== undefined) console.log(response);
   }
 
-  const evtFiles = await readdir('./src/events');
+  const evtFiles = await readdir('./build/events');
   console.log(`Loading a total of ${evtFiles.length} events.`);
   for (const f of evtFiles) {
     const eventName = f.split('.')[0];
@@ -23,16 +21,14 @@ client.config = require('./config.js');
     const event = require(`./events/${f}`);
     client.on(eventName, event.bind(null, client));
   }
-
-  // Generate a cache of client permissions for pretty perm names in commands.
-  client.levelCache = {};
-  for (let i = 0; i < client.config.permLevels.length; i++) {
-    const thisLevel = client.config.permLevels[i];
-    client.levelCache[thisLevel.name] = thisLevel.level;
-  }
-
+    // Generate a cache of client permissions for pretty perm names in commands.
+    client.levelCache = {};
+    for (let i = 0; i < client.config.permLevels.length; i++) {
+      const thisLevel = client.config.permLevels[i];
+      client.levelCache[thisLevel.name] = thisLevel.level;
+    }
   client.login(client.config.token);
-})().catch(console.err);
+})().catch(console.error);
 
 process.on('SIGINT', async () => {
   console.log('aught interrupt signal');

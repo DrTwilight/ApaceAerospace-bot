@@ -1,8 +1,9 @@
-const { Client, Message, Guild, Collection } = require('discord.js');
+import { Client, Collection } from 'discord.js';
 const Enmap = require('enmap');
 
 
 module.exports = class ApaceClient extends Client {
+	config = require('../config.js');
 	/**
 	 * THIS IS HERE BECAUSE SOME PEOPLE DELETE ALL THE GUILD SETTINGS
 	 * 
@@ -32,10 +33,10 @@ module.exports = class ApaceClient extends Client {
 	 * @param {Message} message Write a dsec here
    * @returns {string} returns the permlvl
 	 */
-	permlevel = message => {
+	permlevel = (message: { guild: any; }) => {
 		let permlvl = 0;
 
-		const permOrder = this.config.permLevels.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
+		const permOrder = this.config.permLevels.slice(0).sort((p: { level: number; }, c: { level: number; }) => p.level < c.level ? 1 : -1);
 
 		while (permOrder.length) {
 			const currentLevel = permOrder.shift();
@@ -58,7 +59,7 @@ module.exports = class ApaceClient extends Client {
 	 * the default settings are used.
 	 * @param {Guild} guild the server stuff
 	 */
-	getSettings = guild => {
+	getSettings = (guild: { id: any; }) => {
 		this.settings.ensure('default', this.defaultSettings);
 		if (!guild) return this.settings.get('default');
 		const guildConf = this.settings.get(guild.id) || {};
@@ -77,8 +78,8 @@ module.exports = class ApaceClient extends Client {
 	 * @param {number} limit How long to wait till it stops waiting for a reply
 	 * @returns {string} returns what it collected from the yser
 	 */
-	awaitReply = async (msg, question, limit = 60000) => {
-		const filter = (m) => m.author.id === msg.author.id;
+	awaitReply = async (msg: { author: { id: any; }; channel: { send: (arg0: any) => any; awaitMessages: (arg0: (m: any) => boolean, arg1: { max: number; time: number; errors: string[]; }) => any; }; }, question: any, limit = 60000) => {
+		const filter = (m: { author: { id: any; }; }) => m.author.id === msg.author.id;
 		await msg.channel.send(question);
 		const collected = await msg.channel.awaitMessages(filter, { max: 1, time: limit, errors: ['time'] });
 		return collected.first().content;
@@ -88,7 +89,7 @@ module.exports = class ApaceClient extends Client {
  * @param {string} text he supplied text to "Clean"
  * @returns {string} Text cleaned with no sensitive info leaked
  */
-clean = async text => {
+clean = async (text: { constructor: { name: string; }; replace: (arg0: RegExp, arg1: string) => { (): any; new(): any; replace: { (arg0: RegExp, arg1: string): { (): any; new(): any; replace: { (arg0: string | null, arg1: string): any; new(): any; }; }; new(): any; }; }; }) => {
   if (text && text.constructor.name == 'Promise') text = await text;
   if (typeof text !== 'string') text = require('util').inspect(text, { depth: 1 });
 
@@ -102,14 +103,14 @@ clean = async text => {
    * @param {string} commandName The name of the command to load
    */
 
-  loadCommand = (commandName) => {
+  loadCommand = (commandName: string) => {
       console.log(`Loading Command: ${commandName}`);
       const props = require(`../commands/${commandName}`);
       if (props.init) {
-        props.init(client);
+        props.init(this);
       }
       this.commands.set(props.help.name, props);
-      props.conf.aliases.forEach((alias) => {
+      props.conf.aliases.forEach((alias: unknown) => {
         this.aliases.set(alias, props.help.name);
       });
       //return false;
@@ -119,17 +120,17 @@ clean = async text => {
    * 
    * @param {string} commandName the name of the command to unload
    */
-  unloadCommand = async (commandName) => {
+  unloadCommand = async (commandName: string) => {
     let command;
     if (this.commands.has(commandName)) {
-      command = client.commands.get(commandName);
-    } else if (client.aliases.has(commandName)) {
-      command = client.commands.get(client.aliases.get(commandName));
+      command = this.commands.get(commandName);
+    } else if (this.aliases.has(commandName)) {
+      command = this.commands.get(this.aliases.get(commandName));
     }
     if (!command) return `The command \`${commandName}\` doesn"t seem to exist, nor is it an alias. Try again!`;
 
     if (command.shutdown) {
-      await command.shutdown(client);
+      await command.shutdown(this);
     }
     const mod = require.cache[require.resolve(`../commands/${command.help.name}`)];
     delete require.cache[require.resolve(`../commands/${command.help.name}.js`)];

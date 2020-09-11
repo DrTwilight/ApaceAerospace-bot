@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const Enmap = require('enmap');
 const fs = require('fs');
 
-let baseConfig = fs.readFileSync('./libs/config_base.txt', 'utf8');
+let baseConfig = fs.readFileSync('./config_base.txt', 'utf8');
 
 const defaultSettings = {
   'prefix': '~',
@@ -43,7 +43,7 @@ let prompts = [
 ];
 
 (async function() {
-  console.log('Setting Up GuideBot Configuration...');
+  console.log('Setting Up Apace Configuration...');
   await settings.defer;
   if (!settings.has('default')) {
     prompts = prompts.slice(1);
@@ -63,7 +63,7 @@ let prompts = [
       .replace('{{ownerID}}', answers.ownerID)
       .replace('{{token}}', `"${answers.token}"`);
 
-  fs.writeFileSync('./config.js', baseConfig);
+  fs.writeFileSync('../config.js', baseConfig);
   console.log('REMEMBER TO NEVER SHARE YOUR TOKEN WITH ANYONE!');
   console.log('Configuration has been written, enjoy!');
   await settings.close();
