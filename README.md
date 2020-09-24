@@ -1,6 +1,6 @@
 # ApaceAerospace-bot
 This is a bot useing the [Discord.js](https://www.npmjs.com/package/discord.js?source=post_page-----7b5fe27cb6fa----------------------)
-and (An Idiots Guides GuildBot[https://github.com/AnIdiotsGuide/guidebot] as a template sorta
+and [An Idiots Guides GuildBot](https://github.com/AnIdiotsGuide/guidebot) as a template sorta
 
 
 ## Requirements
