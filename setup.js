@@ -5,7 +5,7 @@ const fs = require('fs');
 let baseConfig = fs.readFileSync('./config_base.txt', 'utf8');
 
 const defaultSettings = {
-  'prefix': '~',
+  'prefix': '!',
   'modLogChannel': 'mod-log',
   'modRole': 'Moderator',
   'adminRole': 'Administrator',
@@ -42,7 +42,7 @@ let prompts = [
   },
 ];
 
-(async function() {
+(async () => {
   console.log('Setting Up GuideBot Configuration...');
   await settings.defer;
   if (!settings.has('default')) {
